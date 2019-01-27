@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.smart.dao.DomeMapper">
+    <resultMap id="BaseResultMap" type="com.smart.pojo.Dome">
+        <id property="userName" column="t_username" jdbcType="VARCHAR"/>
+        <result property="password" column="t_password" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="selectAll" resultMap="BaseResultMap" parameterType="String">
+        select * from t_demo;
+    </select>
+    <insert id="insertdemo" parameterType="com.smart.pojo.Dome">
+        insert into t_demo(t_username, t_password) value (#{userName,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR})
+    </insert>
+</mapper>
